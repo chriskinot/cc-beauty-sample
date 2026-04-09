@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CC's Beauty Aesthetic Clinic | Chesterfield</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --blush:    #E2B59A;
+    --rose:     #B77466;
+    --cream:    #FAF5F1;
+    --warm-off: #F3EBE5;
+    --deep:     #3B1F1A;
+    --mid:      #7A4B40;
+    --soft:     #D4967F;
+    --white:    #FFFFFF;
+    --text:     #4A2C25;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(250,245,241,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(183,116,102,0.15);
+    transition: padding .3s;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--deep);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--rose); }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color .25s;
+  }
+
+  .nav-links a:hover { color: var(--rose); }
+
+  .nav-book {
+    background: var(--rose);
+    color: var(--white) !important;
+    padding: 10px 26px;
+    border-radius: 40px;
+    font-size: 0.76rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .25s, transform .2s;
+  }
+
+  .nav-book:hover {
+    background: var(--deep);
+    transform: translateY(-1px);
+    color: var(--white) !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 70% 50%, rgba(226,181,154,0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 40px; height: 1px;
+    background: var(--rose);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+    max-width: 420px;
+    margin-bottom: 48px;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 16px; align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose);
+    color: var(--white);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .3s;
+    box-shadow: 0 8px 30px rgba(183,116,102,0.35);
+  }
+
+  .btn-primary:hover {
+    background: var(--deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(59,31,26,0.3);
+  }
+
+  .btn-secondary {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: color .25s;
+  }
+
+  .btn-secondary::after {
+    content: '→';
+    transition: transform .25s;
+  }
+
+  .btn-secondary:hover { color: var(--rose); }
+  .btn-secondary:hover::after { transform: translateX(4px); }
+
+  .hero-trust {
+    margin-top: 56px;
+    display: flex; gap: 36px;
+  }
+
+  .trust-item {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+
+  .trust-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--rose);
+  }
+
+  .trust-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Decorative visual panel */
+  .hero-panel {
+    width: 85%;
+    height: 75vh;
+    background: linear-gradient(145deg, var(--blush) 0%, var(--rose) 60%, #9A5046 100%);
+    border-radius: 240px 40px 240px 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(183,116,102,0.35);
+  }
+
+  .hero-panel::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-panel-text {
+    position: absolute;
+    bottom: 48px; left: 48px; right: 48px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .hero-panel-text .panel-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .hero-panel-text .panel-location {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .hero-panel-text .panel-location::before {
+    content: '📍';
+    font-size: 0.85rem;
+  }
+
+  .floating-badge {
+    position: absolute;
+    top: 48px; right: -20px;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 18px 22px;
+    box-shadow: 0 10px 40px rgba(59,31,26,0.15);
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .floating-badge .badge-star {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .floating-badge .badge-rating {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1;
+  }
+
+  .floating-badge .badge-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+  }
+
+  /* ── TICKER ── */
+  .ticker {
+    background: var(--deep);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ticker-inner {
+    display: flex;
+    gap: 0;
+    animation: ticker 28s linear infinite;
+    width: max-content;
+  }
+
+  .ticker-item {
+    display: flex; align-items: center; gap: 20px;
+    padding: 0 40px;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(226,181,154,0.85);
+    white-space: nowrap;
+  }
+
+  .ticker-item::after {
+    content: '✦';
+    color: var(--rose);
+    font-size: 0.6rem;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 80px; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 30px; height: 1px;
+    background: var(--rose);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--deep);
+    margin-bottom: 20px;
+  }
+
+  .section-title em { font-style: italic; color: var(--rose); }
+
+  .section-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--warm-off);
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 60px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blush), var(--rose));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s;
+  }
+
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(183,116,102,0.2); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .service-cta-row {
+    margin-top: 24px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+    display: flex; align-items: center; gap: 6px;
+    text-decoration: none;
+  }
+
+  /* ── WHY ── */
+  #why {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 100px 80px;
+  }
+
+  .why-visual {
+    position: relative;
+  }
+
+  .why-card-big {
+    background: linear-gradient(135deg, var(--blush) 0%, var(--rose) 100%);
+    border-radius: 32px;
+    height: 460px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+  }
+
+  .why-card-big::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18rem;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    font-style: italic;
+  }
+
+  .why-card-big-inner {
+    color: var(--white);
+    position: relative; z-index: 1;
+  }
+
+  .why-card-big-inner p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .why-card-big-inner span {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  .why-pill {
+    position: absolute;
+    top: 36px; right: -16px;
+    background: var(--white);
+    border-radius: 50px;
+    padding: 14px 20px;
+    box-shadow: 0 8px 30px rgba(59,31,26,0.15);
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .why-pill-icon { font-size: 1.2rem; }
+
+  .why-pill-text { font-size: 0.75rem; font-weight: 500; color: var(--deep); }
+
+  .features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .feature-item {
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+
+  .feature-icon {
+    width: 48px; height: 48px; min-width: 48px;
+    background: var(--warm-off);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    border: 1px solid rgba(183,116,102,0.15);
+  }
+
+  .feature-text h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 4px;
+  }
+
+  .feature-text p {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  /* ── REVIEWS ── */
+  #reviews {
+    background: var(--deep);
+    padding: 100px 80px;
+  }
+
+  #reviews .section-eyebrow { color: var(--blush); }
+  #reviews .section-eyebrow::before { background: var(--blush); }
+  #reviews .section-title { color: var(--white); }
+  #reviews .section-title em { color: var(--blush); }
+  #reviews .section-sub { color: rgba(226,181,154,0.7); }
+
+  .reviews-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    margin-bottom: 50px;
+    gap: 30px;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(226,181,154,0.15);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: transform .3s, background .3s;
+    position: relative;
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .review-card.featured {
+    background: rgba(226,181,154,0.12);
+    border-color: rgba(226,181,154,0.35);
+    grid-row: span 1;
+  }
+
+  .review-stars {
+    display: flex; gap: 3px;
+    margin-bottom: 16px;
+  }
+
+  .star { color: var(--blush); font-size: 0.9rem; }
+
+  .review-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 24px;
+  }
+
+  .review-author {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .review-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blush), var(--rose));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .review-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--blush);
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+  }
+
+  .review-meta {
+    font-size: 0.72rem;
+    color: rgba(226,181,154,0.5);
+    letter-spacing: 0.06em;
+  }
+
+  .review-quote-mark {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    color: rgba(226,181,154,0.12);
+    line-height: 1;
+    font-style: italic;
+  }
+
+  /* ── BOOKING CTA ── */
+  #book {
+    padding: 100px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #book::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(226,181,154,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .book-inner {
+    position: relative; z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .book-inner .section-eyebrow { justify-content: center; }
+  .book-inner .section-eyebrow::before { display: none; }
+
+  .book-inner .section-title { text-align: center; font-size: clamp(2.5rem, 5vw, 4rem); }
+
+  .book-inner .section-sub {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto 48px;
+  }
+
+  .book-cta-group {
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+
+  .book-btn {
+    display: inline-block;
+    background: var(--rose);
+    color: var(--white);
+    padding: 20px 60px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 12px 50px rgba(183,116,102,0.45);
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .book-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform .5s;
+  }
+
+  .book-btn:hover { background: var(--deep); transform: translateY(-3px); box-shadow: 0 20px 60px rgba(59,31,26,0.35); }
+  .book-btn:hover::before { transform: translateX(100%); }
+
+  .book-note {
+    font-size: 0.8rem;
+    color: var(--mid);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color: rgba(226,181,154,0.7);
+    padding: 60px 80px 36px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-brand span { color: var(--blush); }
+
+  .footer-desc {
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .footer-social {
+    display: flex; gap: 12px;
+  }
+
+  .social-btn {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(226,181,154,0.25);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blush);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all .25s;
+  }
+
+  .social-btn:hover {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: var(--white);
+  }
+
+  .footer-col h5 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-col ul li a, .footer-col ul li {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(226,181,154,0.65);
+    text-decoration: none;
+    transition: color .25s;
+    line-height: 1.4;
+  }
+
+  .footer-col ul li a:hover { color: var(--blush); }
+
+  .footer-divider {
+    height: 1px;
+    background: rgba(226,181,154,0.12);
+    margin-bottom: 24px;
+  }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.76rem;
+    color: rgba(226,181,154,0.4);
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 80px; }
+    .hero-left { padding: 60px 24px 40px; }
+    .hero-right { height: 300px; padding: 0 24px 40px; }
+    .hero-panel { width: 100%; height: 260px; border-radius: 24px; }
+    .floating-badge { right: 10px; top: 10px; }
+    .hero-trust { gap: 24px; }
+    section { padding: 70px 24px; }
+    #why { grid-template-columns: 1fr; padding: 70px 24px; }
+    .services-header { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-header { grid-template-columns: 1fr; }
+    #book { padding: 70px 24px; }
+    footer { padding: 50px 24px 30px; }
+    .footer-top { grid-template-columns: 1fr; gap: 36px; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">CC's <span>Beauty</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Chesterfield's Aesthetic Clinic</p>
+    <h1>Beauty, Elevated<br><em>Naturally.</em></h1>
+    <p class="hero-desc">
+      Expert aesthetic treatments delivered with clinical precision and a personal touch.
+      From lip filler to laser — feel truly confident in your own skin.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="btn-primary">Book Your Treatment</a>
+      <a href="#services" class="btn-secondary">Explore Services</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-num">5★</span>
+        <span class="trust-label">Google Rating</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">100%</span>
+        <span class="trust-label">Recommend Rate</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">CQC</span>
+        <span class="trust-label">Compliant Clinic</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-panel">
+      <div class="hero-panel-text">
+        <p class="panel-tagline">"She made me feel completely at ease from the start."</p>
+        <span class="panel-location">252 Williamthorpe Road, North Wingfield, Chesterfield</span>
+      </div>
+    </div>
+    <div class="floating-badge">
+      <div class="badge-star">⭐⭐⭐⭐⭐</div>
+      <div class="badge-rating">5.0</div>
+      <div class="badge-label">All Reviews</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Lip Filler</span>
+    <span class="ticker-item">Dermal Fillers</span>
+    <span class="ticker-item">Anti-Wrinkle Treatments</span>
+    <span class="ticker-item">Laser Hair Removal</span>
+    <span class="ticker-item">Microneedling</span>
+    <span class="ticker-item">Hydro Facial</span>
+    <span class="ticker-item">Profhilo</span>
+    <span class="ticker-item">Skin Boosters</span>
+    <span class="ticker-item">Jaw &amp; Chin Filler</span>
+    <span class="ticker-item">In-Clinic Health Testing</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">Lip Filler</span>
+    <span class="ticker-item">Dermal Fillers</span>
+    <span class="ticker-item">Anti-Wrinkle Treatments</span>
+    <span class="ticker-item">Laser Hair Removal</span>
+    <span class="ticker-item">Microneedling</span>
+    <span class="ticker-item">Hydro Facial</span>
+    <span class="ticker-item">Profhilo</span>
+    <span class="ticker-item">Skin Boosters</span>
+    <span class="ticker-item">Jaw &amp; Chin Filler</span>
+    <span class="ticker-item">In-Clinic Health Testing</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header fade-up">
+    <div>
+      <p class="section-eyebrow">What We Offer</p>
+      <h2 class="section-title">Treatments Designed<br>for <em>Real Results</em></h2>
+    </div>
+    <div>
+      <p class="section-sub">Every treatment is tailored to you — your features, your goals, your comfort. No cookie-cutter results.</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="service-card fade-up">
+      <span class="service-icon">💋</span>
+      <div class="service-name">Lip Filler</div>
+      <p class="service-desc">Natural-looking volume and definition. Our most popular treatment, delivered with a gentle hand for minimal bruising.</p>
+      <span class="service-cta-row">Book Now →</span>
+    </a>
+    <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="service-card fade-up">
+      <span class="service-icon">✨</span>
+      <div class="service-name">Dermal Fillers</div>
+      <p class="service-desc">Sculpt and restore. Jaw, chin, cheeks and more — lifting and contouring with precision and artistry.</p>
+      <span class="service-cta-row">Book Now →</span>
+    </a>
+    <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="service-card fade-up">
+      <span class="service-icon">🌿</span>
+      <div class="service-name">Microneedling</div>
+      <p class="service-desc">Firmer, more radiant skin. Clients are amazed by the glow and reduction in fine lines after just one session.</p>
+      <span class="service-cta-row">Book Now →</span>
+    </a>
+    <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="service-card fade-up">
+      <span class="service-icon">💉</span>
+      <div class="service-name">Laser Hair Removal</div>
+      <p class="service-desc">Smooth, long-lasting results. Say goodbye to the razor with our safe and effective laser treatments.</p>
+      <span class="service-cta-row">Book Now →</span>
+    </a>
+    <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="service-card fade-up">
+      <span class="service-icon">💧</span>
+      <div class="service-name">Profhilo &amp; Skin Boosters</div>
+      <p class="service-desc">Deep hydration from within. Plump, luminous skin with one of the most popular bioremodelling treatments available.</p>
+      <span class="service-cta-row">Book Now →</span>
+    </a>
+    <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="service-card fade-up">
+      <span class="service-icon">🌸</span>
+      <div class="service-name">Hydro Facial</div>
+      <p class="service-desc">Cleanse, exfoliate, extract and hydrate. Leave with a visible glow — it's a favourite for a reason.</p>
+      <span class="service-cta-row">Book Now →</span>
+    </a>
+  </div>
+</section>
+
+<!-- WHY CHAR -->
+<section id="why">
+  <div class="why-visual fade-up">
+    <div class="why-card-big">
+      <div class="why-card-big-inner">
+        <p>"Professional beyond belief. I have never ever had anything like this."</p>
+        <span>— Rachael O'Hara, Verified Client</span>
+      </div>
+    </div>
+    <div class="why-pill">
+      <span class="why-pill-icon">🏥</span>
+      <span class="why-pill-text">Spotless, calm clinical environment</span>
+    </div>
+  </div>
+  <div class="fade-up">
+    <p class="section-eyebrow">Why Choose Us</p>
+    <h2 class="section-title">You're in the <em>Safest Hands</em></h2>
+    <p style="font-size:0.95rem;font-weight:300;color:var(--mid);line-height:1.8;margin-bottom:40px;max-width:480px;">
+      Charmain (Char) brings warmth, skill, and professionalism to every single appointment. Her clients don't just come back — they tell everyone they know.
+    </p>
+    <ul class="features-list">
+      <li class="feature-item">
+        <div class="feature-icon">🎓</div>
+        <div class="feature-text">
+          <h4>Fully Qualified Practitioner</h4>
+          <p>Trained and experienced in advanced aesthetic treatments with a commitment to ongoing education.</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <div class="feature-icon">🤝</div>
+        <div class="feature-text">
+          <h4>A Consultation First, Always</h4>
+          <p>Every treatment begins with a thorough consultation. Your goals, your comfort, your results.</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <div class="feature-icon">🏥</div>
+        <div class="feature-text">
+          <h4>Spotless Clinical Environment</h4>
+          <p>Located at LB Lounge, North Wingfield — a clean, calm, and welcoming clinic space.</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <div class="feature-icon">💌</div>
+        <div class="feature-text">
+          <h4>Full Aftercare Support</h4>
+          <p>Detailed aftercare guidance for every treatment so you get the best possible results.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-header">
+    <div>
+      <p class="section-eyebrow">Client Stories</p>
+      <h2 class="section-title">What Our <em>Clients Say</em></h2>
+      <p class="section-sub">Real words from real clients — no filters, no fluff.</p>
+    </div>
+    <div>
+      <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="btn-primary">Book Your Appointment</a>
+    </div>
+  </div>
+  <div class="reviews-grid">
+
+    <div class="review-card featured fade-up">
+      <span class="review-quote-mark">"</span>
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-text">"Absolutely amazing from start to finish. I have been having various treatments for years, and I have never ever had anything like this. Professional beyond belief, very minimal pain considering I had 5ml of filler. The results are outstanding."</p>
+      <div class="review-author">
+        <div class="review-avatar">R</div>
+        <div>
+          <div class="review-name">Rachael O'Hara</div>
+          <div class="review-meta">Verified Google Review · 1 month ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card fade-up">
+      <span class="review-quote-mark">"</span>
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-text">"Char is a diamond…. So professional, really put me at ease and knows her stuff! Extremely happy with the results. Talked and explained before and throughout the whole treatment and explained the aftercare plan thoroughly. I wouldn't go to anyone else."</p>
+      <div class="review-author">
+        <div class="review-avatar">C</div>
+        <div>
+          <div class="review-name">Charlotte Harris</div>
+          <div class="review-meta">Verified Google Review · 3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card fade-up">
+      <span class="review-quote-mark">"</span>
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-text">"I had such a lovely experience at CC Beauty getting my jaw and chin fillers done. Charmain made me feel completely at ease from the start and was so professional and kind. The clinic was spotless and had a really calm, clinical feel to it."</p>
+      <div class="review-author">
+        <div class="review-avatar">O</div>
+        <div>
+          <div class="review-name">Odella Robinson</div>
+          <div class="review-meta">Verified Google Review · 3 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card fade-up">
+      <span class="review-quote-mark">"</span>
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-text">"I had my lip filler done today and I honestly couldn't be happier. This was my second time going to her, and once again Char was amazing. She was so gentle and kind, and she really took her time to make sure I felt comfortable."</p>
+      <div class="review-author">
+        <div class="review-avatar">N</div>
+        <div>
+          <div class="review-name">Nermin Velii</div>
+          <div class="review-meta">Verified Google Review · 4 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card fade-up">
+      <span class="review-quote-mark">"</span>
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-text">"Just had my second microneedling at CC's beauty. The results are unbelievable — wish I had taken some before pictures of my skin. My skin looks firmer, more glowy, and the fine lines have visibly improved. Love this treatment."</p>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Sarah Moore</div>
+          <div class="review-meta">Verified Google Review · 4 months ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card fade-up">
+      <span class="review-quote-mark">"</span>
+      <div class="review-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="review-text">"Felt completely at ease meeting the lovely Char. I always bruise pretty badly with lip filler so was very nervous. Char was amazing and did just as I asked — she gave me a natural look with hardly any bruising at all. Would definitely recommend."</p>
+      <div class="review-author">
+        <div class="review-avatar">L</div>
+        <div>
+          <div class="review-name">Lesley Hodkin</div>
+          <div class="review-meta">Verified Google Review · 8 months ago</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section id="book">
+  <div class="book-inner fade-up">
+    <p class="section-eyebrow">Ready to Begin?</p>
+    <h2 class="section-title">Your <em>Glow Up</em><br>Starts Here</h2>
+    <p class="section-sub">
+      Whether it's your first treatment or you're a returning client — booking is quick, easy, and just one click away.
+    </p>
+    <div class="book-cta-group">
+      <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="book-btn">Book Now</a>
+      <span class="book-note">📍 252 Williamthorpe Road, North Wingfield, Chesterfield &nbsp;·&nbsp; DM us on Instagram</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">CC's <span>Beauty</span></div>
+      <p class="footer-desc">Aesthetic Clinic based at LB Lounge, North Wingfield, Chesterfield. Specialising in lip filler, dermal fillers, laser hair removal, microneedling, Profhilo, skin boosters and more.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/ccsbeauty_chesterfield" target="_blank" class="social-btn" title="Instagram">📸</a>
+        <a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank" class="social-btn" title="Book Online">📅</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Treatments</h5>
+      <ul>
+        <li><a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank">Lip Filler</a></li>
+        <li><a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank">Dermal Fillers</a></li>
+        <li><a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank">Microneedling</a></li>
+        <li><a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank">Laser Hair Removal</a></li>
+        <li><a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank">Hydro Facial</a></li>
+        <li><a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank">Profhilo & Skin Boosters</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li>252 Williamthorpe Road</li>
+        <li>North Wingfield, Chesterfield</li>
+        <li>United Kingdom</li>
+        <li style="margin-top:10px;"><a href="https://booksolo.co/cc-s-beauty-chesterfield" target="_blank">Book Online →</a></li>
+        <li><a href="https://www.instagram.com/ccsbeauty_chesterfield" target="_blank">Instagram →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <span>© 2025 CC's Beauty Aesthetic Clinic. All rights reserved.</span>
+    <span>Designed with ♥ in Chesterfield</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * (entry.target.dataset.delay || 0));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.dataset.delay = i % 4;
+    observer.observe(el);
+  });
+
+  // Smooth nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = '12px 48px';
+      nav.style.boxShadow = '0 4px 30px rgba(59,31,26,0.08)';
+    } else {
+      nav.style.padding = '20px 48px';
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
